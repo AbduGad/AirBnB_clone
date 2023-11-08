@@ -10,4 +10,6 @@ class FileStorage():
 	"""
 	Class for saving and loading data from files.
 	"""
+	__file_path = 'None'
+	__objects = {}
 	
