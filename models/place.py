@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class place(BaseModel):
+class Place(BaseModel):
     """_summary_
 
     Args:

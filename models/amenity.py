@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class amenity(BaseModel):
+class Amenity(BaseModel):
     """_summary_
 
     Args:
