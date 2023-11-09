@@ -23,6 +23,8 @@ class BaseModel():
 					continue
 				elif key == 'created_at' or key == 'updated_at':
 					setattr(self, key, datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+				else:
+					setattr(self, key, value)
 					
 
 	def __str__(self):
