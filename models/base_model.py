@@ -6,6 +6,7 @@
 """
 from uuid import uuid4
 import datetime
+from models import storage
 
 
 class BaseModel():
@@ -17,6 +18,7 @@ class BaseModel():
 			self.id = str(uuid4())
 			self.created_at = datetime.datetime.now()
 			self.updated_at = datetime.datetime.now()
+			storage.new(self)
 		elif len(kwargs) > 0:
 			for key, value in kwargs.items():
 				if key == '__class__':
@@ -32,6 +34,7 @@ class BaseModel():
 
 	def save(self):
 		self.updated_at = datetime.datetime.now()
+		storage.save()
 
 	def to_dict(self):
 		new_dict = self.__dict__.copy()
