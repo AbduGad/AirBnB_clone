@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
-from models import storage
+import models
 from models.base_model import BaseModel
 
 
@@ -42,13 +42,13 @@ class HBNBCommand(cmd.Cmd):
 
         if not args:
             print("** class name missing **")
-        elif args[0] not in storage.classes():
+        elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         else:
             key = "{}.{}".format(args[0], args[1])
-            ins = storage.all()
+            ins = models.storage.all()
             if key in ins:
                 print(ins[key])
             else:
@@ -64,13 +64,13 @@ class HBNBCommand(cmd.Cmd):
 
         if not args:
             print("** class name missing **")
-        elif args[0] not in storage.classes():
+        elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         else:
             key = "{}.{}".format(args[0], args[1])
-            ins = storage.all()
+            ins = models.storage.all()
             if key not in ins:
                 print("** no instance found **")
             elif len(args) == 2:
@@ -87,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
                     except (NameError, SyntaxError):
                         pass
                     setattr(obj, attr, value)
-                    storage.save()
+                    models.storage.save()
 
     def do_destroy(self, arg):
         """_summary_
@@ -99,25 +99,35 @@ class HBNBCommand(cmd.Cmd):
 
         if not args:
             print("** class name missing **")
-        elif args[0] not in storage.classes():
+        elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         else:
             key = "{}.{}".format(args[0], args[1])
-            ins = storage.all()
+            ins = models.storage.all()
             if key in ins:
                 del ins[key]
-                storage.save()
+                models.storage.save()
             else:
                 print("** no instance found **")
 
     def do_all(self, arg):
-        """_summary_
+        """Prints all string representations of instances"""
+        # instances = storage.all()
 
-        Args:
-            arg (_type_): _description_
-        """
+        if not arg:
+            print([str(inst) for inst in models.storage.all().values()])
+            return
+
+        args = arg.split()
+        class_name = args[0]
+
+        if class_name not in models.storage.classes():
+            print("** class doesn't exist **")
+        else:
+            print([str(instance) for instance in models.storage.all().values()
+                   if instance.__class__.__name__ == class_name])
 
 
 if __name__ == "__main__":

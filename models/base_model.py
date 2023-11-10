@@ -5,8 +5,9 @@
         BaseModel: set common attributes & methods
 """
 from uuid import uuid4
-from models import storage
 import datetime
+import models
+# from models import storage
 
 
 class BaseModel():
@@ -19,7 +20,7 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
-            storage.new(self)
+            models.storage.new(self)
         elif len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == '__class__':
@@ -27,14 +28,15 @@ class BaseModel():
                 elif key == 'created_at' or key == 'updated_at':
                     setattr(self, key, datetime.datetime.strptime(
                         value, '%Y-%m-%dT%H:%M:%S.%f'))
+                else:
+                    setattr(self, key, value)
 
     def __str__(self):
         print(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
-        # return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         self.updated_at = datetime.datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         new_dict = self.__dict__.copy()
