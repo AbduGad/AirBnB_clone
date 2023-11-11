@@ -31,7 +31,7 @@ class BaseModel():
                     setattr(self, key, value)
 
     def __str__(self):
-        #print(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
+        # print(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):

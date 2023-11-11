@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             for key, value in obj.items():
                 if value.__class__.__name__ == args[0]:
-                    #tmpobj = eval(value['__class__'])(**value)
+                    # tmpobj = eval(value['__class__'])(**value)
                     print(value)
             return
 
