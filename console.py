@@ -124,12 +124,14 @@ class HBNBCommand(cmd.Cmd):
             print(["{}".format(str(ins))
                   for _, ins in obj.items()])
             return
-        if args[0] not in models.classes.keys():
+        if args[0] not in models.storage.classes():
             print("** class doesn't exist **")
             return
         else:
-            print(["{}".format(str(ins))
-                  for _, ins in obj.items() if type(ins).__name__ == args[0]])
+            for key, value in obj.items():
+                if value.__class__.__name__ == args[0]:
+                    #tmpobj = eval(value['__class__'])(**value)
+                    print(value)
             return
 
 

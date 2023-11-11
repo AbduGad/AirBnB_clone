@@ -34,11 +34,9 @@ class FileStorage():
         }
         return classes
 
-    @property
     def all(self):
         return self.__objects
 
-    @object.setter
     def new(self, obj):
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
