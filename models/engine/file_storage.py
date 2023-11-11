@@ -35,6 +35,7 @@ class FileStorage():
         return classes
 
     def all(self):
+        """returns __objects attribute"""
         return self.__objects
 
     def new(self, obj):
