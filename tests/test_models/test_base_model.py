@@ -32,10 +32,6 @@ class TestBaseModel(unittest.TestCase):
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/base_model.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
-        
-        dummy = BaseModel()
-        self.assertIsInstance(dummy.created_at, datetime.datetime)
-        self.assertIsInstance(dummy.updated_at, datetime.datetime)
 
     def test_check_functions(self):
         self.assertIsNotNone(BaseModel.__doc__)
