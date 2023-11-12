@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """_summary_
+        """summary
 
         Args:
             arg (_type_): _description_
