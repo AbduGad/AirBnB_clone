@@ -58,7 +58,6 @@ class FileStorage():
     def reload(self):
         """_summary_
         """
-        data = {}
         try:
             with open(self.__file_path, 'r') as f:
                 data = json.load(f)
