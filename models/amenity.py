@@ -1,12 +1,9 @@
-"""_summary_
+"""Module
 """
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """_summary_
-
-    Args:
-        BaseModel (_type_): _description_
+    """Amenity
     """
     name = ""
