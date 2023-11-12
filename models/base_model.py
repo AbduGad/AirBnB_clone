@@ -33,10 +33,7 @@ class BaseModel():
                     setattr(self, key, value)
 
     def __str__(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
+        """Returns Strings of class name, id and dict
         """
         # print(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
