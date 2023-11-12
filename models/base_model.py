@@ -15,7 +15,7 @@ class BaseModel():
     """
 
     def __init__(self, *args, **kwargs):
-        """_summary_
+        """Public instance attributes
         """
         if len(kwargs) == 0:
             self.id = str(uuid4())
