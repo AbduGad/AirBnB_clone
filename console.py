@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        """_summary_
+        """summary
 
         Args:
             arg (_type_): _description_
