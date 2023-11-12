@@ -103,10 +103,7 @@ class HBNBCommand(cmd.Cmd):
                     models.storage.save()
 
     def do_destroy(self, arg):
-        """summary
-
-        Args:
-            arg (_type_): _description_
+        """Delete/Destroy instance of BaseModel
         """
         args = arg.split()
 
