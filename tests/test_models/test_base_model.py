@@ -13,6 +13,8 @@ class TestBaseModel(unittest.TestCase):
     def setUpClass(cls):
         """sets up"""
         cls.testBase = BaseModel()
+        cls.testBase.x = "x"
+        cls.testBase.y = 100
 
     @classmethod
     def tearDownClass(cls):
