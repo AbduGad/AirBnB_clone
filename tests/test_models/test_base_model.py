@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """Tests the basemodels"""
+import sys
+"""sys.path.append('/mnt/c/Users/pc/OneDrive/Desktop/\
+                Alx/ALX Programing/AirBnB_clone')"""
 import unittest
 import os
 from models.base_model import BaseModel
-import pep8
+import pycodestyle
 import datetime
 
 
@@ -22,14 +25,14 @@ class TestBaseModel(unittest.TestCase):
         del cls.testBase
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_pep8_basemodel(self):
         """
         tests pep8
         """
-        style = pep8.StyleGuide(quiet=True)
+        style = pycodestyle.StyleGuide(quiet=True)
         p = style.check_files(['models/base_model.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 

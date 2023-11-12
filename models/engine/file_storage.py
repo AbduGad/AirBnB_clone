@@ -21,9 +21,7 @@ class FileStorage():
     __objects = {}
 
     def classes(self):
-        """
-        classes
-        """
+
         classes = {
             "BaseModel": BaseModel,
             "Amenity": Amenity,
