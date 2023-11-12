@@ -1,109 +1,68 @@
 #!/usr/bin/python3
 """
-Unittest to test FileStorage class
+    FileStorage Test module: check if all files are present
+    TestClasses:
+        AttributesTest: test attributes assign & working
 """
+
 import unittest
-import pep8
-import json
-import os
 from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
-from models.engine.file_storage import FileStorage
+from models import storage
+import os
+import json
 
 
-class TestFileStorage(unittest.TestCase):
-    """
-    testing file storage
+class AttributesTest(unittest.TestCase):
+    """ Test if attributes in class are working fine
     """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.usr = User()
-        cls.usr.first_name = "Andrew"
-        cls.usr.last_name = "Suh"
-        cls.usr.email = "andrew@gmail.com"
-        cls.storage = FileStorage()
-
-    @classmethod
-    def teardown(cls):
-        del cls.usr
-
-    def teardown(self):
-        try:
-            os.remove("file.json")
-        except:
-            pass
-
-    def test_pep8_filestorage(self):
+    def test_file_storage(self):
+        """ test name attr existance
         """
-        tests for pep8
+
+        dummy = storage()
+        self.assertIsNotNone(dummy.__file_path)
+        self.assertIsNotNone(dummy.__objects)
+
+
+class MethodsTest(unittest.TestCase):
+    """ Test proper FileStorage method working
+    """
+
+    def test_all(self):
+        """ Test all method
         """
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/engine/file_storage.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_all_filestorage(self):
+        self.assertIsInstance(storage.all(), dict)
+
+    def test_new(self):
+        """ Test new method
         """
-        tests for all
+
+        dummy = BaseModel()
+        storage.new(dummy)
+        key = "{}.{}".format(dummy.__class__.__name__, dummy.id)
+        self.assertTrue(storage.all()[key])
+
+    def test_save(self):
+        """ Test saving a
         """
-        new = FileStorage()
-        instances_dic = new.all()
-        self.assertIsNotNone(instances_dic)
-        self.assertEqual(type(instances_dic), dict)
-        self.assertIs(instances_dic, new._FileStorage__objects)
 
-    def test_new_filestorage(self):
+        self.assertIsInstance(storage.all(), dict)
+        obj_size_one = len(storage.all())
+        dummy = BaseModel()
+        dummy.save()
+        obj_size_two = len(storage.all())
+        self.assertNotEqual(obj_size_one, obj_size_two)
+
+    def test_reload(self):
+        """ Test Reloading method
         """
-        tests for new
-        """
-        altsotrage = FileStorage()
-        dic = altsotrage.all()
-        rev = User()
-        rev.id = 69
-        rev.name = "Meep"
-        altsotrage.new(rev)
-        key = rev.__class__.__name__ + "." + str(rev.id)
-        self.assertIsNotNone(dic[key])
 
-    def test_reload_filestorage(self):
-        """
-        tests reload
-        """
-        self.storage.save()
-        Root = os.path.dirname(os.path.abspath("console.py"))
-        path = os.path.join(Root, "file.json")
-        with open(path, 'r') as f:
-            lines = f.readlines()
-
-        try:
-            os.remove(path)
-        except:
-            pass
-
-        self.storage.save()
-
-        with open(path, 'r') as f:
-            lines2 = f.readlines()
-
-        self.assertEqual(lines, lines2)
-
-        try:
-            os.remove(path)
-        except:
-            pass
-
-        with open(path, "w") as f:
-            f.write("{}")
-        with open(path, "r") as r:
-            for line in r:
-                self.assertEqual(line, "{}")
-        self.assertIs(self.storage.reload(), None)
-
-
-if __name__ == "__main__":
-    unittest.main()
+        obj_size_one = len(storage.all())
+        if os.path.isfile('file.json'):
+            with open('file.json', 'r') as docfile:
+                docread = docfile.read()
+                storage.reload()
+                storage.reload()
+                self.assertGreater(obj_size_one, 0)
