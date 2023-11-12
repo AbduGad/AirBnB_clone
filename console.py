@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""_summary_
-
-Returns:
-    _type_: _description_
+"""CMD Module
 """
 import cmd
 import models
