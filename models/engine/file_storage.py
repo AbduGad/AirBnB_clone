@@ -48,8 +48,7 @@ class FileStorage():
         """
 
         for key, value in self.__objects.items():
-            if not isinstance(value, dict):
-                self.__objects[key] = value.to_dict()
+            self.__objects[key] = value.to_dict()
         with open(self.__file_path, "w") as f:
             json.dump(self.__objects, f)
 
