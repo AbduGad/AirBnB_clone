@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """_summary_
+        """summary
 
         Args:
             arg (_type_): _description_
