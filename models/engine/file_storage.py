@@ -5,6 +5,12 @@ deserializes JSON file to instances
 """
 import json
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.review import Review
+from models.city import City
+from models.place import Place
+from models.user import User
+from models.state import State
 
 
 class FileStorage():
@@ -15,13 +21,6 @@ class FileStorage():
     __objects = {}
 
     def classes(self):
-        from models.base_model import BaseModel
-        from models.amenity import Amenity
-        from models.review import Review
-        from models.city import City
-        from models.place import Place
-        from models.user import User
-        from models.state import State
 
         classes = {
             "BaseModel": BaseModel,
