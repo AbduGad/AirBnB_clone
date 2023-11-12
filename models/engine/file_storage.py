@@ -38,10 +38,7 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        """_summary_
-
-        Args:
-            obj (_type_): _description_
+        """new
         """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
