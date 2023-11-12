@@ -21,21 +21,6 @@ class FileStorage():
     __objects = {}
 
     def classes(self):
-<<<<<<< HEAD
-=======
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
-        from models.base_model import BaseModel
-        from models.amenity import Amenity
-        from models.review import Review
-        from models.city import City
-        from models.place import Place
-        from models.user import User
-        from models.state import State
->>>>>>> f81efcab8d2f4fde8796721dc002f80ac0b6133a
 
         classes = {
             "BaseModel": BaseModel,
