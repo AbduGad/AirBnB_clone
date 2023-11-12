@@ -25,12 +25,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """summary
-
-        Args:
-            arg (_type_): _description_
-
-        Returns:
-            _type_: _description_
         """
         return True
 
