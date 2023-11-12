@@ -13,3 +13,45 @@ Each task is linked and will help you to:
 - create all classes used for AirBnB (`User`, `State`, `City`, `Place`…) that inherit from `BaseModel`
 - create the first abstracted storage engine of the project: File storage.
 - create all unittests to validate all our classes and storage engine
+
+## How To Use It
+
+### Your shell should work like this in interactive mode:
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
+
+### But also in non-interactive mode:
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+```
