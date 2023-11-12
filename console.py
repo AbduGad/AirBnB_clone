@@ -126,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
                     models.storage.save()
 
     def do_destroy(self, arg):
-        """_summary_
+        """summary
 
         Args:
             arg (_type_): _description_
