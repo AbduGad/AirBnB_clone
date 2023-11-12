@@ -39,12 +39,12 @@ class BaseModel():
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """_summary_"""
+        """save"""
         self.updated_at = datetime.datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """_summary_"""
+        """dictionary representation of an instance"""
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
         new_dict["created_at"] = self.created_at.isoformat()
