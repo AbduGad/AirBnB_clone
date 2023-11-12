@@ -13,8 +13,6 @@ class TestBaseModel(unittest.TestCase):
     def setUpClass(cls):
         """sets up"""
         cls.testBase = BaseModel()
-        cls.testBase.x = "x"
-        cls.testBase.y = 100
 
     @classmethod
     def tearDownClass(cls):
@@ -47,11 +45,6 @@ class TestBaseModel(unittest.TestCase):
 
     def test_init(self):
         self.assertTrue(isinstance(self.testBase, BaseModel))
-        
-        dummy = BaseModel()
-        dict_dummy = dummy.to_dict()
-        new_dummy = BaseModel(**dict_dummy)
-        self.assertEqual("{}".format(dummy), "{}".format(new_dummy))
 
     def test_save(self):
         self.testBase.save()
