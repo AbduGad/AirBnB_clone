@@ -21,6 +21,21 @@ class FileStorage():
     __objects = {}
 
     def classes(self):
+<<<<<<< HEAD
+=======
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
+        from models.base_model import BaseModel
+        from models.amenity import Amenity
+        from models.review import Review
+        from models.city import City
+        from models.place import Place
+        from models.user import User
+        from models.state import State
+>>>>>>> f81efcab8d2f4fde8796721dc002f80ac0b6133a
 
         classes = {
             "BaseModel": BaseModel,
@@ -38,17 +53,26 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
+        """_summary_
+
+        Args:
+            obj (_type_): _description_
+        """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects[key] = obj
 
     def save(self):
+        """_summary_
+        """
         for key, value in self.__objects.items():
             self.__objects[key] = value.to_dict()
         with open(self.__file_path, 'w') as f:
             json.dump(self.__objects, f)
 
     def reload(self):
+        """_summary_
+        """
         data = {}
         try:
             with open(self.__file_path, 'r') as f:

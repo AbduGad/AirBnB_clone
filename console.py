@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""_summary_
 
+Returns:
+    _type_: _description_
+"""
 import cmd
 import models
 from models import storage
@@ -7,17 +11,43 @@ from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
+    """_summary_
+
+    Args:
+        cmd (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
+        """_summary_
+
+        Args:
+            arg (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return True
 
     def do_EOF(self, arg):
+        """_summary_
+
+        Args:
+            arg (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         print()
         return True
 
     def emptyline(self):
+        """_summary_
+        """
         pass
 
     def do_create(self, arg):
@@ -130,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             for key, value in obj.items():
                 if value.__class__.__name__ == args[0]:
-                    #tmpobj = eval(value['__class__'])(**value)
+                    # tmpobj = eval(value['__class__'])(**value)
                     print(value)
             return
 
