@@ -71,10 +71,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_update(self, arg):
-        """summary
-
-        Args:
-            arg (_type_): _description_
+        """Update instance of BaseModel
         """
         args = arg.split()
 
