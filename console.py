@@ -24,18 +24,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """summary
+        """Quit
         """
         return True
 
     def do_EOF(self, arg):
-        """summary
-
-        Args:
-            arg (_type_): _description_
-
-        Returns:
-            _type_: _description_
+        """EOF
         """
         return True
 
