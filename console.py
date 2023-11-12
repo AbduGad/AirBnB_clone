@@ -48,7 +48,6 @@ class HBNBCommand(cmd.Cmd):
         Returns:
             _type_: _description_
         """
-        print()
         return True
 
     def emptyline(self):
