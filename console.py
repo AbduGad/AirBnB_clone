@@ -17,13 +17,8 @@ from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
-    """_summary_
-
-    Args:
-        cmd (_type_): _description_
-
-    Returns:
-        _type_: _description_
+    """
+        command line intrepeter
     """
 
     prompt = "(hbnb) "
