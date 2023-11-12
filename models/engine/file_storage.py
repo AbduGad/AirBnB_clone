@@ -20,6 +20,19 @@ class FileStorage():
     __file_path = 'file.json'
     __objects = {}
 
+    def classes(self):
+
+        classes = {
+            "BaseModel": BaseModel,
+            "Amenity": Amenity,
+            "Review": Review,
+            "City": City,
+            "Place": Place,
+            "User": User,
+            "State": State
+        }
+        return classes
+
     def all(self):
         """returns __objects attribute"""
         return self.__objects
