@@ -52,10 +52,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        """summary
-
-        Args:
-            arg (_type_): _description_
+        """Show instance of BaseModel
         """
         args = arg.split()
 
