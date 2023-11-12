@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """_summary_
+        """summary
         """
         pass
 
