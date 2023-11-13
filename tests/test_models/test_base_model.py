@@ -11,17 +11,14 @@ import datetime
 
 
 class TestBaseModel(unittest.TestCase):
-    """tests for basemodel"""
+    """Class to test base model class."""
+
     @classmethod
     def setUpClass(cls):
-        """sets up"""
         cls.testBase = BaseModel()
 
     @classmethod
     def tearDownClass(cls):
-        """
-        tears down
-        """
         del cls.testBase
         try:
             os.remove("file.json")
@@ -29,14 +26,13 @@ class TestBaseModel(unittest.TestCase):
             pass
 
     def test_pep8_basemodel(self):
-        """
-        tests pep8
-        """
-        style = pycodestyle.StyleGuide(quiet=True)
-        p = style.check_files(['models/base_model.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
+        """Check that code is PEP8 compliant."""
+        style_pycode = pycodestyle.StyleGuide(quiet=True)
+        pip = style_pycode.check_files(['models/base_model.py'])
+        self.assertEqual(pip.total_errors, 0, "fix your code")
 
     def test_check_functions(self):
+        """Check if all functions are defined correctly."""
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.to_dict.__doc__)

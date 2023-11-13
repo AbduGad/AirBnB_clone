@@ -67,10 +67,10 @@ class HBNBCommand(cmd.Cmd):
             print(ins.id)
         except NameError:
             print("** class doesn't exist **")
+            return
 
     def do_show(self, arg):
         """_summary_
-
         Args:
             arg (_type_): _description_
         """
@@ -78,17 +78,21 @@ class HBNBCommand(cmd.Cmd):
 
         if not args:
             print("** class name missing **")
-        elif args[0] not in models.storage.classes():
+        elif args[0] not in storage.classes():
             print("** class doesn't exist **")
+            return
         elif len(args) == 1:
             print("** instance id missing **")
+            return
         else:
             key = "{}.{}".format(args[0], args[1])
-            ins = models.storage.all()
+            ins = storage.all()
             if key in ins:
                 print(ins[key])
+                return
             else:
                 print("** no instance found **")
+                return
 
     def do_update(self, arg):
         """_summary_
@@ -102,6 +106,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif args[0] not in models.storage.classes():
             print("** class doesn't exist **")
+            return
         elif len(args) == 1:
             print("** instance id missing **")
         else:
