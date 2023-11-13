@@ -2,10 +2,10 @@
 """
 testing aminitey class
 """
-"""import sys
-sys.path.append('/mnt/c/Users/pc/OneDrive/Desktop/\
+"""sys.path.append('/mnt/c/Users/pc/OneDrive/Desktop/\
 	Alx/ALX Programing/AirBnB_clone')"""
 
+import sys
 import unittest
 import models
 from models import storage
