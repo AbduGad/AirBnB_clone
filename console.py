@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
         Args:
             arg (_type_): _description_
         """
-        """storage.reload()"""
+        storage.reload()
         args = arg.split()
 
         if not args:
