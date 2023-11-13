@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
         Args:
             arg (_type_): _description_
         """
-        storage.reload()
+        """storage.reload()"""
         args = arg.split()
 
         if not args:
@@ -69,7 +69,10 @@ class HBNBCommand(cmd.Cmd):
             key = "{}.{}".format(args[0], args[1])
             ins = storage.all()
             if key in ins:
-                print(storage.all()[key])
+                if isinstance(ins[key], dict):
+                    print(eval(storage.all()[key]['__class__'])())
+                else:
+                    print(storage.all()[key])
                 return
             else:
                 print("** no instance found **")
