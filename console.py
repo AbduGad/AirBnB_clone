@@ -69,10 +69,9 @@ class HBNBCommand(cmd.Cmd):
             key = "{}.{}".format(args[0], args[1])
             ins = storage.all()
             if key in ins:
-                if isinstance(ins[key], dict):
-                    print(eval(storage.all()[key]['__class__'])())
-                else:
-                    print(storage.all()[key])
+                """if isinstance(ins[key], dict):
+            print(eval(storage.all()[key]['__class__'])())"""
+                print(storage.all()[key])
                 return
             else:
                 print("** no instance found **")
