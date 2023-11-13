@@ -78,6 +78,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """Update instance of BaseModel
         """
+        storage.reload()
         args = arg.split()
 
         if not args:
