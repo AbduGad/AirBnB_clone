@@ -131,6 +131,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Prints all string representations of instances"""
 
+        storage.reload()
         obj = storage.all()
 
         args = arg.split()
