@@ -100,14 +100,13 @@ class HBNBCommand(cmd.Cmd):
             else:
                 obj = ins[key]
                 attr = args[2]
-                if hasattr(obj, attr):
-                    value = args[3]
-                    try:
-                        value = eval(value)
-                    except (NameError, SyntaxError):
-                        pass
-                    setattr(obj, attr, value)
-                    models.storage.save()
+                value = args[3]
+                try:
+                    value = eval(value)
+                except (NameError, SyntaxError):
+                    pass
+                setattr(obj, attr, value)
+                models.storage.save()
 
     def do_destroy(self, arg):
         """Delete/Destroy instance of BaseModel
