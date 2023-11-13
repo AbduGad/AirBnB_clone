@@ -1,13 +1,11 @@
-"""_summary_
+#!/usr/bin/python3
+"""module
 """
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """_summary_
-
-    Args:
-        BaseModel (_type_): _description_
+    """city
     """
     state_id = ""
     name = ""

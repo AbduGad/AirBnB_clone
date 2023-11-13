@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""_summary_
-
-Returns:
-    _type_: _description_
+"""CMD Module
 """
 import cmd
 import models
@@ -17,41 +14,24 @@ from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
-    """_summary_
-
-    Args:
-        cmd (_type_): _description_
-
-    Returns:
-        _type_: _description_
+    """
+        command line intrepeter
     """
 
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """_summary_
-
-        Args:
-            arg (_type_): _description_
-
-        Returns:
-            _type_: _description_
+        """Quit
         """
         return True
 
     def do_EOF(self, arg):
-        """_summary_
-
-        Args:
-            arg (_type_): _description_
-
-        Returns:
-            _type_: _description_
+        """EOF
         """
         return True
 
     def emptyline(self):
-        """_summary_
+        """summary
         """
         pass
 
@@ -70,9 +50,13 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, arg):
+<<<<<<< HEAD
         """_summary_
         Args:
             arg (_type_): _description_
+=======
+        """Show instance of BaseModel
+>>>>>>> 880689e24c109dc241ba9855679f0fc8a4204716
         """
         args = arg.split()
 
@@ -95,10 +79,7 @@ class HBNBCommand(cmd.Cmd):
                 return
 
     def do_update(self, arg):
-        """_summary_
-
-        Args:
-            arg (_type_): _description_
+        """Update instance of BaseModel
         """
         args = arg.split()
 
@@ -131,10 +112,7 @@ class HBNBCommand(cmd.Cmd):
                     models.storage.save()
 
     def do_destroy(self, arg):
-        """_summary_
-
-        Args:
-            arg (_type_): _description_
+        """Delete/Destroy instance of BaseModel
         """
         args = arg.split()
 

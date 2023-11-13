@@ -38,17 +38,14 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        """_summary_
-
-        Args:
-            obj (_type_): _description_
+        """new
         """
         if obj:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects[key] = obj
 
     def save(self):
-        """_summary_
+        """save
         """
         for key, value in self.__objects.items():
             if not isinstance(value, dict):
@@ -57,7 +54,7 @@ class FileStorage():
             json.dump(self.__objects, f)
 
     def reload(self):
-        """_summary_
+        """reload
         """
         try:
             with open(self.__file_path, 'r') as f:

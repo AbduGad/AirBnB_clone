@@ -15,7 +15,7 @@ class BaseModel():
     """
 
     def __init__(self, *args, **kwargs):
-        """_summary_
+        """Public instance attributes
         """
         if len(kwargs) == 0:
             self.id = str(uuid4())
@@ -33,21 +33,18 @@ class BaseModel():
                     setattr(self, key, value)
 
     def __str__(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
+        """Returns Strings of class name, id and dict
         """
         # print(f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """_summary_"""
+        """save"""
         self.updated_at = datetime.datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """_summary_"""
+        """dictionary representation of an instance"""
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
         new_dict["created_at"] = self.created_at.isoformat()
