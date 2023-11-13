@@ -50,13 +50,9 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, arg):
-<<<<<<< HEAD
         """_summary_
         Args:
             arg (_type_): _description_
-=======
-        """Show instance of BaseModel
->>>>>>> 880689e24c109dc241ba9855679f0fc8a4204716
         """
         args = arg.split()
 
